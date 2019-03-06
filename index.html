@@ -23,7 +23,19 @@
 <center>
 <div id="panorama"></div><br/>
     <script>
+	i = 0
+	n_images = 5
 	function imageFunction(image) {
+		if (!image || image == 'next') {
+			i ++;
+			if (i > n_images) {i = 1} ;
+			image = 'images/image' + i + '.jpg';
+		}
+		if (image == 'prev') {
+			i --;
+			if (i == 0) {i = n_images} ;
+			image = 'images/image' + i + '.jpg';
+		}
 		 pannellum.viewer('panorama', {
 			"type": "equirectangular",
 			"autoLoad": true,
@@ -32,13 +44,14 @@
 			"hfov": 100,
 			"panorama": image
 		});
+		image = null
 	}
-	imageFunction('images/low.jpg')
+	</script>
+	<script>
+	imageFunction('images/image1.jpg')
 	</script> 
 <div>
-	<a id="demo" onclick="imageFunction('images/low.jpg')">Image 1 </a> - 
-	<a id="demo" onclick="imageFunction('images/medium.jpg')">Image 2 </a> - 
-	<a id="demo" onclick="imageFunction('images/high.jpg')">Image 3 </a>
+	<a id="demo" onclick="imageFunction('prev')"><< previous image </a> - <a id="demo" onclick="imageFunction()">next image >></a>
 </div>
 </center>
 </body>
