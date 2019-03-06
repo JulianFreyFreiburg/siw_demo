@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A simple example</title>
+    <title>A simple example for an image sphere viewer</title>
     <link rel="stylesheet" href="js/pannellum.css"/>
     <script type="text/javascript" src="js/pannellum.js"></script>
     <style>
@@ -16,7 +16,6 @@
 	text-decoration: underline;
 	font-style: bold;
 	font-family: Arial, sans;
-	
 	}
     </style>
 </head>
@@ -24,42 +23,22 @@
 <center>
 <div id="panorama"></div><br/>
     <script>
-	function lowFunction() {
+	function imageFunction(image) {
 		 pannellum.viewer('panorama', {
 			"type": "equirectangular",
 			"autoLoad": true,
 			"autoRotate": 7,
 			"showControls": true,
 			"hfov": 100,
-			"panorama": "images/low.jpg"
+			"panorama": image
 		});
 	}
-	function mediumFunction() {
-		 pannellum.viewer('panorama', {
-			"type": "equirectangular",
-			"autoLoad": true,
-			"autoRotate": 7,
-			"showControls": true,
-			"hfov": 100,
-			"panorama": "images/medium.jpg"
-		});
-	}
-	function highFunction() {
-		 pannellum.viewer('panorama', {
-			"type": "equirectangular",
-			"autoLoad": true,
-			"autoRotate": 7,
-			"showControls": true,
-			"hfov": 100,
-			"panorama": "images/high.jpg"
-		});
-	}
-	lowFunction()
+	imageFunction('images/low.jpg')
 	</script> 
 <div>
-	<a id="demo" onclick="lowFunction()">Image 1 </a> - 
-	<a id="demo" onclick="mediumFunction()">Image 2 </a> - 
-	<a id="demo" onclick="highFunction()">Image 3 </a>
+	<a id="demo" onclick="imageFunction('images/low.jpg')">Image 1 </a> - 
+	<a id="demo" onclick="imageFunction('images/medium.jpg')">Image 2 </a> - 
+	<a id="demo" onclick="imageFunction('images/high.jpg')">Image 3 </a>
 </div>
 </center>
 </body>
